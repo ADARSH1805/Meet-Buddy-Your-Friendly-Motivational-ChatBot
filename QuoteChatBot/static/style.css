@@ -1,0 +1,300 @@
+body {
+    margin: 0;
+    font-family: 'Segoe UI', sans-serif;
+    transition: 0.3s;
+  }
+  
+  .dashboard {
+    display: flex;
+    height: 100vh;
+  }
+  
+  /* Sidebar */
+  .sidebar {
+    background: #4CAF50;
+    color: white;
+    padding: 20px;
+    width: 200px;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    gap: 20px;
+  }
+  
+  .sidebar h1 {
+    margin: 0;
+    font-size: 22px;
+  }
+  
+  .sidebar ul {
+    list-style: none;
+    padding: 0;
+    width: 100%;
+  }
+  
+  .sidebar ul li {
+    margin-bottom: 10px;
+  }
+  
+  .sidebar ul li a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    display: block;
+    padding: 8px 12px;
+    border-radius: 6px;
+  }
+  
+  .sidebar ul li a:hover {
+    background: rgba(255,255,255,0.2);
+  }
+  
+  .mode-label {
+    font-size: 14px;
+  }
+  
+  /* Main Content */
+  .main {
+    flex: 1;
+    padding: 40px;
+    background: #f9f9f9;
+  }
+  
+  .main h2 {
+    margin-top: 0;
+  }
+  
+  .daily-quote {
+    margin-top: 10px;
+    padding: 20px;
+    background: #fff5d7;
+    border-left: 5px solid #ff9800;
+    border-radius: 8px;
+    font-style: italic;
+  }
+  
+  /* Chat Panel */
+  .chat-panel {
+    width: 400px;
+    border-left: 1px solid #ddd;
+    background: #fff;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .chat-box {
+    flex: 1;
+    overflow-y: auto;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    padding: 10px;
+    margin-bottom: 10px;
+    height: 300px;
+    background: #fafafa;
+  }
+  
+  .message {
+    margin-bottom: 10px;
+    display: flex;
+    align-items: flex-start;
+  }
+  
+  .message .icon {
+    margin-right: 8px;
+    font-size: 20px;
+  }
+  
+  .bubble {
+    background: #e0f7e9;
+    padding: 10px;
+    border-radius: 10px;
+    position: relative;
+  }
+  
+  .message.user .bubble {
+    background: #d0e6ff;
+  }
+  
+  .copy-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 14px;
+    position: absolute;
+    top: 5px;
+    right: 5px;
+  }
+  
+  .typing {
+    font-style: italic;
+    font-size: 13px;
+    color: gray;
+    display: none;
+    margin-bottom: 10px;
+  }
+  
+  form {
+    display: flex;
+    gap: 10px;
+  }
+  
+  input[type="text"] {
+    flex: 1;
+    padding: 10px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+  }
+  
+  button {
+    padding: 10px 15px;
+    background: #4CAF50;
+    border: none;
+    color: white;
+    border-radius: 8px;
+    cursor: pointer;
+  }
+  
+  button:hover {
+    background: #45a049;
+  }
+  
+  /* Mood buttons */
+  .mood-buttons {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 10px;
+    flex-wrap: wrap;
+  }
+  
+  .mood-buttons button {
+    background: #eee;
+    border: none;
+    padding: 6px 12px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 13px;
+  }
+  
+  .mood-buttons button:hover {
+    background: #4caf50;
+    color: white;
+  }
+  
+  /* Dark Mode */
+  body.dark {
+    background: #1c1c1c;
+    color: #eee;
+  }
+  
+  body.dark .main,
+  body.dark .chat-panel,
+  body.dark .chat-box,
+  body.dark .daily-quote {
+    background: #2a2a2a;
+    color: white;
+  }
+  
+  body.dark .bubble,
+  body.dark .message.user .bubble {
+    background: #3c3c3c;
+  }
+  
+  /* Switch toggle */
+  .switch {
+    position: relative;
+    display: inline-block;
+    width: 42px;
+    height: 24px;
+  }
+  
+  .switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+  
+  .slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background-color: #ccc;
+    transition: .4s;
+    border-radius: 24px;
+  }
+  
+  .slider:before {
+    position: absolute;
+    content: "";
+    height: 18px;
+    width: 18px;
+    left: 3px;
+    bottom: 3px;
+    background-color: white;
+    transition: .4s;
+    border-radius: 50%;
+  }
+  
+  input:checked + .slider {
+    background-color: #2196F3;
+  }
+  
+  input:checked + .slider:before {
+    transform: translateX(18px);
+  }
+/* Clock & Greeting */
+.greeting-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  #current-time {
+    font-size: 16px;
+    font-weight: bold;
+    color: #555;
+  }
+  
+  /* Quote Controls */
+  .quote-controls {
+    margin: 20px 0;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+  }
+  
+  .quote-controls select, .quote-controls button {
+    padding: 6px 10px;
+    border-radius: 5px;
+    border: 1px solid #aaa;
+    font-size: 14px;
+    background: #fff;
+    cursor: pointer;
+  }
+  
+  .quote-controls button {
+    background: #4CAF50;
+    color: white;
+    font-weight: bold;
+  }
+  
+  .quote-controls button:hover {
+    background: #45a049;
+  }
+  
+  /* Quote History */
+  .quote-history {
+    background: #fff;
+    padding: 10px;
+    border-radius: 10px;
+    max-height: 120px;
+    overflow-y: auto;
+    border: 1px solid #ddd;
+  }
+  
+  .quote-history ul {
+    list-style: disc inside;
+    padding-left: 10px;
+    margin: 0;
+  }
+    

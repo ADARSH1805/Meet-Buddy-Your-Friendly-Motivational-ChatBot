@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Motivational Dashboard</title>
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+  <div class="dashboard">
+    <!-- Sidebar -->
+    <div class="sidebar">
+      <h1>🌟Buddy</h1>
+      <ul>
+        <li><a href="#">🏠 Home</a></li>
+        <li><a href="#">💡 Quotes</a></li>
+        <li><a href="#">📚 About</a></li>
+      </ul>
+      <label class="switch">
+        <input type="checkbox" id="theme-toggle">
+        <span class="slider round"></span>
+      </label>
+      <span class="mode-label">Dark Mode</span>
+    </div>
+
+    <!-- Main Content -->
+    <div class="main">
+      <div class="greeting-header">
+        <h2 id="greeting-text">Welcome back! 💫</h2>
+        <div id="current-time">--:--:--</div>
+      </div>
+    
+      <p class="quote-title">Here's a quote to start your day:</p>
+      <div class="daily-quote" id="daily-quote">Loading...</div>
+    
+      <div class="quote-controls">
+        <label for="category">Choose Category:</label>
+        <select id="category" onchange="fetchCategoryQuote()">
+          <option value="success">Success</option>
+          <option value="happiness">Happiness</option>
+          <option value="focus">Focus</option>
+          <option value="perseverance">Perseverance</option>
+          <option value="motivation">Motivation</option>
+        </select>
+        <button onclick="sendMood('Give me a random motivational quote')">🔁 New Quote</button>
+      </div>
+    
+      <h4>📜 Previous Daily Quotes</h4>
+      <div class="quote-history" id="quote-history">
+        <ul></ul>
+      </div>
+    </div>
+
+    <!-- ChatBot Panel -->
+    <div class="chat-panel">
+      <h3>💬 Your Motivational Buddy</h3>
+      <div class="mood-buttons">
+        <button onclick="sendMood('I feel happy 😊')">😊 Happy</button>
+        <button onclick="sendMood('I feel sad 😔')">😔 Sad</button>
+        <button onclick="sendMood('I need motivation 💪')">💪 Motivation</button>
+        <button onclick="sendMood('I’m feeling low 😞')">😞 Low</button>
+      </div>
+      <div id="chat-box" class="chat-box"></div>
+      <div id="typing-indicator" class="typing">Bot is typing...</div>
+      <form id="chat-form">
+        <input type="text" id="user-input" placeholder="Type your message..." autocomplete="off" required>
+        <button type="submit">Send</button>
+        <button type="button" id="mic-btn">🎤</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Link to script file -->
+  <script src="/static/script.js"></script>
+</body>
+</html>
